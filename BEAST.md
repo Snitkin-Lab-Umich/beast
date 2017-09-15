@@ -31,7 +31,7 @@ BEAST uses a method called Markov Chain Monte Carlo (MCMC) to sample from the po
 
 The way BEAST is set up, the BEAUTi GUI is used to generate an xml file that can then be run using BEAST. Unfortunately, there is no command line version of BEAUTi, and no easy way to generate BEAST xml files from the command line. However, once the xml files are created, BEAST itself can be run from the command line.
 
-### Overview of BEAUTi
+### Pre-BEAUTi
 
 BEAUTi takes a nexus file of the sequences you want to run in BEAST.
 
@@ -44,6 +44,8 @@ You'll probably have to change the dates to decimal format before loading the ne
 If you're adding discrete traits and/or tip dates, here's a good tutorial:
 
 [Ancestral reconstruction/Discrete phylogeography (Version 2.4.1)](https://github.com/BEAST2-Dev/beast-classic/releases/download/v1.3.0/ARv2.4.1.pdf)
+
+### Overview of BEAUTi
 
 In BEAUTi, I set the substitution, clock, and population models, add the dates, add the discrete trait, and set the chain length and amount to log. I change the amount to log in proportion to the amount I change the chain length. It's pretty easy to make a bunch of different ones once you have one done, because you can just change the model you want and then save it as a different name. (Although it'd be nice to make a script to do it at some point!)
 
