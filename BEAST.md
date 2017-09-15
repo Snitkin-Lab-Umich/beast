@@ -89,7 +89,9 @@ When Jeffrey's prior is invalid for one of the substitution rates, the prior and
 
 ### Clock Model (Strict vs. Lognormal)
 
-Look at the coefficient of variation for the relaxed lognormal molecular clock. If it's >> 0.1, then it's not clocklike and a strict molecular clock should not be used. If, on the other hand, the 95% HPD of the coefficient of variation is close to zero, then the substitution rate can be considered clock-like and a strict molecular clock can be used. Also, if the distribution of the coefficient of variation bumps up against zero, then a strict molecular clock cannot be rejected.
+Look at the coefficient of variation for the relaxed uncorrelated lognormal (UCLN) molecular clock. If it's >> 0.1, then it's not clocklike and a strict molecular clock should not be used. If, on the other hand, the 95% HPD of the coefficient of variation is close to zero, then the substitution rate can be considered clock-like and a strict molecular clock can be used. Also, if the distribution of the coefficient of variation bumps up against zero, then a strict molecular clock cannot be rejected.
+
+When using the UCLN clock model, I usually change the prior on the mean from a Uniform prior to a Gamma(0.001,1000) prior. The Uniform is an improper prior and can cause issues if you want to do Path Sampling analysis for model selection.
 
 ### Population Growth Model (Coalescent Constant vs. Exponential vs. Bayesian Skyline)
 
