@@ -31,22 +31,23 @@ BEAST uses a method called Markov Chain Monte Carlo (MCMC) to sample from the po
 
 The way BEAST is set up, the BEAUTi GUI is used to generate an xml file that can then be run using BEAST. Unfortunately, there is no command line version of BEAUTi, and no easy way to generate BEAST xml files from the command line. However, once the xml files are created, BEAST itself can be run from the command line.
 
-### Overview of BEAUTI
+### Overview of BEAUTi
 
-In BEAUTi, I set the substitution, clock, and population models, add the dates, add the discrete trait, and set the chain length and amount to log. I change the amount to log in proportion to the amount I change the chain length. It's pretty easy to make a bunch of different ones once you have one done, because you can just change the model you want and then save it as a different name. (Although it'd be nice to make a script to do it at some point!)
+BEAUTi takes a nexus file of the sequences you want to run in BEAST.
 
-I then copy all of the BEAUTi files over to flux to run BEAST.
+The way I set up my sequence names is isolateName_location_date to make it easy to parse them out in BEAUTi. The location is to be able to do ancestral reconstruction and the date is to be able to use temporal information and get a dated tree.
+
+You'll probably have to change the dates to decimal format before loading the nexus file into BEAUTI. Here's an R function I made to do that:
+
+```/nfs/esnitkin/Zena/lib/dateToDecimalYear.R```
 
 If you're adding discrete traits and/or tip dates, here's a good tutorial:
 
 [Ancestral reconstruction/Discrete phylogeography (Version 2.4.1)](https://github.com/BEAST2-Dev/beast-classic/releases/download/v1.3.0/ARv2.4.1.pdf)
 
-You'll probably have to change the tip dates to decimal format. Here's an R function I made to do that:
+In BEAUTi, I set the substitution, clock, and population models, add the dates, add the discrete trait, and set the chain length and amount to log. I change the amount to log in proportion to the amount I change the chain length. It's pretty easy to make a bunch of different ones once you have one done, because you can just change the model you want and then save it as a different name. (Although it'd be nice to make a script to do it at some point!)
 
-```/nfs/esnitkin/Zena/lib/dateToDecimalYear.R```
-
-The way I set up my tip names is isolateName_location_date. Then it's easy to parse them out in BEAUTi.
-
+I then copy all of the BEAUTi files over to flux to run BEAST.
 
 ### What input do you need to generate the BEAST xml file using BEAUTi?
 
