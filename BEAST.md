@@ -108,7 +108,7 @@ From the directory where I want to generate the BEAST directories (and where the
 This example would generate an input_beast.txt file with all of the xml files in the directory listed 3 times.
 
 Then, I run this to start the BEAST PBS jobs:
-```/nfs/esnitkin/Zena/lib/beast_pbs.pl input_beast.txt```
+```perl /nfs/esnitkin/Zena/lib/beast_pbs.pl input_beast.txt```
 
 This will create a directory for each run. If you want to see how far a run has gotten, or do preliminary analyses (such as looking at the log file in Tracer), you can find the partial log file (and trees file) in the respective directory. 
 
