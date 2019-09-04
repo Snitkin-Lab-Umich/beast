@@ -89,7 +89,9 @@ When Jeffrey's prior is invalid for one of the substitution rates, the prior and
 
 ### Clock Model (Strict vs. Lognormal)
 
-Look at the coefficient of variation for the relaxed lognormal molecular clock. If it's >> 0.1, then it's not clocklike and a strict molecular clock should not be used. If, on the other hand, the 95% HPD of the coefficient of variation is close to zero, then the substitution rate can be considered clock-like and a strict molecular clock can be used. Also, if the distribution of the coefficient of variation bumps up against zero, then a strict molecular clock cannot be rejected.
+Look at the coefficient of variation for the relaxed uncorrelated lognormal (UCLN) molecular clock. If it's >> 0.1, then it's not clocklike and a strict molecular clock should not be used. If, on the other hand, the 95% HPD of the coefficient of variation is close to zero, then the substitution rate can be considered clock-like and a strict molecular clock can be used. Also, if the distribution of the coefficient of variation bumps up against zero, then a strict molecular clock cannot be rejected.
+
+When using the UCLN clock model, I usually change the prior on the mean from a Uniform prior to a Gamma(0.001,1000) prior. The Uniform is an improper prior and can cause issues if you want to do Path Sampling analysis for model selection.
 
 ### Population Growth Model (Coalescent Constant vs. Exponential vs. Bayesian Skyline)
 
@@ -106,7 +108,7 @@ From the directory where I want to generate the BEAST directories (and where the
 This example would generate an input_beast.txt file with all of the xml files in the directory listed 3 times.
 
 Then, I run this to start the BEAST PBS jobs:
-```/nfs/esnitkin/Zena/lib/beast_pbs.pl input_beast.txt```
+```perl /nfs/esnitkin/Zena/lib/beast_pbs.pl input_beast.txt```
 
 This will create a directory for each run. If you want to see how far a run has gotten, or do preliminary analyses (such as looking at the log file in Tracer), you can find the partial log file (and trees file) in the respective directory. 
 
